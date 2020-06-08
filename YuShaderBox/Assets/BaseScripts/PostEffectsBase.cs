@@ -2,8 +2,8 @@
 namespace Effect.YuPost
 {
     /// <summary>
-    /// 屏幕后处理效果基类
-    /// </summary>
+    /// 屏幕后处理效果 基类
+    /// </summary> 
    // [ExecuteInEditMode]
     [RequireComponent(typeof(Camera))]
     public class PostEffectsBase : MonoBehaviour
