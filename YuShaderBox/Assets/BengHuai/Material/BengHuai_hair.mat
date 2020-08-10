@@ -74,16 +74,16 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LightArea: 1
+    - _LightArea: 0.22
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutlineSize: 0.1
     - _Parallax: 0.02
-    - _SecondShadow: 0.5
-    - _Shininess: 0.1
+    - _SecondShadow: 0.269
+    - _Shininess: 0
     - _SmoothnessTextureChannel: 0
-    - _SpecMulti: 1
+    - _SpecMulti: 0.214
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
@@ -94,6 +94,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FirstShadowMultColor: {r: 1, g: 1, b: 1, a: 1}
-    - _LightSpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightSpecColor: {r: 0.6603774, g: 0.21493416, b: 0.21493416, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SecondShadowMultColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

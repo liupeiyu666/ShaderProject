@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Avatar_Bronya_C6_Material_Hat
+  m_Shader: {fileID: 4800000, guid: 92917a2d36e90304c83e7f85dd00ac35, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BloomTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DTTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMapTex:
+        m_Texture: {fileID: 2800000, guid: ef408b57fb5e27345aad9dd4e6030101, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 9ec9172d03f976b47b2eb6cd95125e82, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SPCubeMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SPNoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SPTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _factorTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _indexTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tableTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BloomFactor: 1
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DTIntensity: 5
+    - _DTNormalDisplacment: 0
+    - _DTPlaySpeed: 0
+    - _DTUVScaleInX: 1
+    - _DTUVScaleInY: 1
+    - _DetailNormalMapScale: 1
+    - _Distortion: 0
+    - _DitherAlpha: 1
+    - _DstBlend: 0
+    - _Emission: 1
+    - _EmissionBloomFactor: 1
+    - _FadeDistance: 0.5
+    - _FadeOffset: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0
+    - _GlossyReflections: 1
+    - _LightArea: 0.51
+    - _LookupColor: 0
+    - _LookupColorBilinear: 0
+    - _MaxOutlineZOffset: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Opaqueness: 1
+    - _OutlineCamStart: 1000
+    - _OutlineWidth: 0.2
+    - _Parallax: 0.02
+    - _RGBias: 0
+    - _RGBloomFactor: 1
+    - _RGRatio: 0.5
+    - _RGScale: 1
+    - _RGShininess: 1
+    - _RimGlow: 0
+    - _SPCubeMapBrightness: 1.26
+    - _SPCubeMapIntensity: 0
+    - _SPCubeMapNoiseIntensity: 0
+    - _SPIntensity: 0.5
+    - _SPNoiseScaler: 1
+    - _SPOpaqueness: 1
+    - _SPTransition: 0
+    - _SPTransitionBloomFactor: 1
+    - _SPTransitionEmissionScaler: 1
+    - _Scale: 0.01
+    - _SecondShadow: 0.51
+    - _Shininess: 10
+    - _SmoothnessTextureChannel: 0
+    - _SpecMulti: 0.1
+    - _SpecialState: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _UsingBloomMask: 1
+    - _UsingDitherAlpha: 0
+    - _VertexAlphaFactor: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DTFresnel: {r: 1, g: 1, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EnvColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FirstShadowMultColor: {r: 0.9, g: 0.7, b: 0.75, a: 1}
+    - _LightSpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RGColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SPCubeMapColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SPCubeMapOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _SPOldColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SPOutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SPTransitionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SecondShadowMultColor: {r: 0.75, g: 0.6, b: 0.65, a: 1}

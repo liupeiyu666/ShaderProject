@@ -280,3 +280,8 @@ D:\YuGit\YuShaderGraph\YuShaderBox\obj\Debug\Assembly-CSharp.csproj.CoreCompileI
 D:\YuGit\YuShaderGraph\YuShaderBox\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\YuGit\YuShaderGraph\YuShaderBox\obj\Debug\Assembly-CSharp.dll
 D:\YuGit\YuShaderGraph\YuShaderBox\obj\Debug\Assembly-CSharp.pdb
+D:\YuGit\YuShaderGraph\YuShaderBox\Temp\bin\Debug\Boo.Lang.dll
+D:\YuGit\YuShaderGraph\YuShaderBox\Temp\bin\Debug\UnityEditor.UI.dll
+D:\YuGit\YuShaderGraph\YuShaderBox\Temp\bin\Debug\Unity.Postprocessing.Editor.pdb
+D:\YuGit\YuShaderGraph\YuShaderBox\Temp\bin\Debug\Unity.Postprocessing.Runtime.pdb
+D:\YuGit\YuShaderGraph\YuShaderBox\Temp\bin\Debug\UnityEditor.UI.xml
