@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[ExecuteInEditMode]
 public class DrawGrass : MonoBehaviour
 {
+
     public int grassCount = 100;
 
     private Mesh grassMesh;
@@ -26,7 +27,7 @@ public class DrawGrass : MonoBehaviour
 
     public Bounds grassBounds;
 
-    Matrix4x4[] grassMaterix4X4;
+    List<Matrix4x4[]> grassMaterix4X4s=new List<Matrix4x4[]>();
     Vector4[] positions;
 
     Vector3 selfPosition;
@@ -38,6 +39,18 @@ public class DrawGrass : MonoBehaviour
     {
         Draw();
     }
+
+    void OnEnable()
+    {
+        Draw();
+    }
+
+    void OnDisable()
+    {
+        grassGO = null;
+        grassMaterix4X4s.Clear();
+    }
+
     public void Draw()
     {
 
@@ -47,7 +60,7 @@ public class DrawGrass : MonoBehaviour
             int randomIndex = Random.Range(0, childCount);
             grassGO = grassContainer.GetChild(randomIndex).gameObject;
         }
-        grassMesh = grassGO.GetComponent<MeshFilter>().mesh;
+        grassMesh = grassGO.GetComponent<MeshFilter>().sharedMesh;
         grassMaterial = grassGO.GetComponent<MeshRenderer>().sharedMaterial;
         if (grassMesh == null || grassMaterial == null)
         {
@@ -55,81 +68,60 @@ public class DrawGrass : MonoBehaviour
             return;
         }
 
-
-
         selfPosition = transform.position;
         maxHeight = 0;
         SetupGrassBuffers();
         maxHeight += 1.5f;
-        grassBounds = new Bounds(new Vector3(selfPosition.x, maxHeight / 2, selfPosition.z), new Vector3(xRange * 2, maxHeight / 2, zRange * 2));
+      //  grassBounds = new Bounds(new Vector3(selfPosition.x, maxHeight / 2, selfPosition.z), new Vector3(xRange * 2, maxHeight / 2, zRange * 2));
     }
     void Update()
     {
-        Graphics.DrawMeshInstanced(grassMesh, 0, grassMaterial, grassMaterix4X4, grassMaterix4X4.Length);
+      //  Debug.LogError(grassMaterix4X4.Length);
+        for (int i = 0; i < grassMaterix4X4s.Count; i++)
+        {
+            Graphics.DrawMeshInstanced(grassMesh, 0, grassMaterial, grassMaterix4X4s[i], grassMaterix4X4s[i].Length);
+        }
+       
     }
-    // void OnDrawGizmos(){
-    //     Gizmos.DrawCube(grassBounds.center,grassBounds.size);
-    // }
-
     void SetupGrassBuffers()
     {
         if (grassCount < 1) grassCount = 1;
         List<Matrix4x4> matrixList = new List<Matrix4x4>();
 
-        for (int i = 0; i < grassCount; i++)
+        int counts = grassCount / 1020;
+        int left= grassCount % 1020;
+        counts = left == 0 ? counts : counts + 1;
+        for (int i = 0; i < counts; i++)
         {
-
-            float x = Random.Range(-xRange, xRange) + selfPosition.x;
-            float z = Random.Range(-zRange, zRange) + selfPosition.z;
-            float y = drawGrassHeight;//selfPosition.y;
-
-            Vector3 randomPos = new Vector4(x, 0, z, 1f);
-            if (GetGround(ref randomPos)||true)
+            matrixList.Clear();
+            //--有余数的时候，需要在最后一次添加的数量为余数的数量
+            if (left!=0&& i== counts-1)
             {
-                matrixList.Add(Matrix4x4.TRS(randomPos, Quaternion.Euler(0F, 0, 0F), new Vector3(1, 1, 1)));
-            }
-        }
-        grassMaterix4X4 = matrixList.ToArray();
-    }
-
-
-    RaycastHit[] hitArr = new RaycastHit[3];
-    bool GetGround(ref Vector3 p)
-    {
-        Ray ray = new Ray(p, Vector3.down);
-        int hitCount = Physics.RaycastNonAlloc(ray, hitArr, drawGrassHeight);
-        if (hitCount > 0)
-        {
-            hitCount = Mathf.Min(hitCount, hitArr.Length);
-            float maxHight = float.MinValue;
-            int index = -1;
-            for (int i = 0; i < hitCount; ++i)
-            {
-                RaycastHit hit = hitArr[i];
-
-                if (hit.point.y > maxHight)
+                for (int j = 0; j < left; j++)
                 {
-                    maxHight = hit.point.y;
-                    index = i;
+                    float x = Random.Range(-xRange, xRange);
+                    float z = Random.Range(-zRange, zRange);
+                    float y = drawGrassHeight;//selfPosition.y;
+                    Vector3 randomPos = new Vector4(x, 0, z);
+                    matrixList.Add(Matrix4x4.TRS(randomPos, grassGO.transform.rotation, grassGO.transform.lossyScale));
                 }
             }
-            if (index >= 0)
+            else
             {
-                RaycastHit closeHit = hitArr[index];
-
-                if (closeHit.collider.CompareTag("Terrain") || closeHit.collider.CompareTag("SkyGround"))
+                for (int j = 0; j < 1020; j++)
                 {
-                    //如果命中地面,则使用命中后的位置.
-                    p = closeHit.point;
-                    if (p.y >= limitHeight)
-                    {
-                        return false;
-                    }
-                    return true;
+                    float x = Random.Range(-xRange, xRange);
+                    float z = Random.Range(-zRange, zRange);
+                    float y = drawGrassHeight;//selfPosition.y;
+                    Vector3 randomPos = new Vector4(x, 0, z);
+                    matrixList.Add(Matrix4x4.TRS(randomPos, grassGO.transform.rotation, grassGO.transform.lossyScale));
                 }
             }
-
+            var grassMaterix4X4 = matrixList.ToArray();
+            grassMaterix4X4s.Add(grassMaterix4X4);
+            // matrixList.Add(Matrix4x4.TRS(randomPos, Quaternion.Euler(0F, 0, 0F), new Vector3(1, 1, 1)));
         }
-        return false;
+       
     }
+
 }

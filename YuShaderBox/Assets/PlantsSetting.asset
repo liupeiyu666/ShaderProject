@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce943a0122aed94a9fcd97c33340763, type: 3}
+  m_Name: PlantsSetting
+  m_EditorClassIdentifier: 
+  PlantingSettings:
+  - Plant: {fileID: 4392583493476409323, guid: 05dde41ce34a39847b5ed07dccd99a07, type: 3}
+    SameRadius: 0.1
+    DiffRadius: 0
+    ScaleRandom: {x: 0, y: 0, z: 0}
+    Scale: {x: 1, y: 3, z: 1}
+    Offset: {x: 0, y: 1.5, z: 0}
+  - Plant: {fileID: 3174850460340317403, guid: 661957c24263ba84582c0b056fa6aabf, type: 3}
+    SameRadius: 0.1
+    DiffRadius: 0
+    ScaleRandom: {x: 0, y: 0, z: 0}
+    Scale: {x: 1, y: 2, z: 1}
+    Offset: {x: 0, y: 1, z: 0}
+  - Plant: {fileID: 6228833402304617097, guid: d954127fbda39804fb972d6cc7b759d2, type: 3}
+    SameRadius: 0
+    DiffRadius: 0
+    ScaleRandom: {x: 0, y: 0, z: 0}
+    Scale: {x: 1, y: 1, z: 1}
+    Offset: {x: 0, y: 0.5, z: 0}
+  - Plant: {fileID: 2422481233635546932, guid: d3b39a68ae9dcf442b2b837c17617c80, type: 3}
+    SameRadius: 0
+    DiffRadius: 0
+    ScaleRandom: {x: 0, y: 0, z: 0}
+    Scale: {x: 1, y: 1, z: 1}
+    Offset: {x: 0, y: 0.5, z: 0}
+  - Plant: {fileID: 0}
+    SameRadius: 0
+    DiffRadius: 0
+    ScaleRandom: {x: 0, y: 0, z: 0}
+    Scale: {x: 0, y: 0, z: 0}
+    Offset: {x: 0, y: 0, z: 0}
+  - Plant: {fileID: 0}
+    SameRadius: 0
+    DiffRadius: 0
+    ScaleRandom: {x: 0, y: 0, z: 0}
+    Scale: {x: 0, y: 0, z: 0}
+    Offset: {x: 0, y: 0, z: 0}
+  Plants:
+  - {fileID: 4392583493476409323, guid: 05dde41ce34a39847b5ed07dccd99a07, type: 3}
+  - {fileID: 3174850460340317403, guid: 661957c24263ba84582c0b056fa6aabf, type: 3}
+  - {fileID: 6228833402304617097, guid: d954127fbda39804fb972d6cc7b759d2, type: 3}
+  - {fileID: 2422481233635546932, guid: d3b39a68ae9dcf442b2b837c17617c80, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  BrushSize: 28
+  Density: 0.08
+  canEdit: 1
+  useEraser: 0
+  isSingleEraser: 0
