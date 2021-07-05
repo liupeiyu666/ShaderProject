@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSetting: {fileID: 11400000, guid: c3c3175e7a30f844bbc1d09b53613ddd, type: 2}
-  ShowMap: 1
+  ShowMap: 0
   PlantsList:
   - MPlant: {fileID: 4392583493476409323, guid: 05dde41ce34a39847b5ed07dccd99a07,
       type: 3}

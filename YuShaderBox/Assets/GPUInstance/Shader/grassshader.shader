@@ -5,7 +5,7 @@
         _Colorone ("Color", Color) = (1, 1, 1, 1)//根基颜色
 		_Wind("_Wind",2D)="white"{}//突变风采样纹理
 		_MainTex ("_MainTex", 2D) = "white" {}
-		_VerticalBillboarding("Vertical Restraints", Range(0, 1)) = 1
+		_VerticalBillboarding("Vertical Restraints", Range(0, 20)) = 1
 		_Cutoff("Alpha Cutoff",Range(0,1))=0.5
 		_Radius("_Radius",Range(0.1,10))=1//人物干扰半径
 		//_Pos("_Pos",float)=1
@@ -72,12 +72,18 @@
 				float3 viewer = mul(unity_WorldToObject,float4(_WorldSpaceCameraPos,1));
 				//--摄像机
 				float3 normalDir = viewer - center;
-				normalDir.y = normalDir.y * _VerticalBillboarding;
+				//normalDir.y = normalDir.y * _VerticalBillboarding;
+				//normalDir = normalize(normalDir);
+				//float3 upDir = abs(normalDir.y) > 0.9999 ? float3(0, 0, 1) : float3(0, 1, 0);
+				//float3 rightDir = normalize(cross(upDir, normalDir));				
+				//upDir = float3(0,1,0);
+				//----锁定Y为世界Y，根据法线方向重构法线和Right
+				float3 upDir = float3(0, 1, 0);
 				normalDir = normalize(normalDir);
-				float3 upDir = abs(normalDir.y) > 0.9999 ? float3(0, 0, 1) : float3(0, 1, 0);
 				float3 rightDir = normalize(cross(upDir, normalDir));
-				upDir = float3(0,1,0);
-				//-------------判断是否在球体范围内，如果在，距离球心越远扰动效果越小，效果比较好
+				normalDir= normalize(cross(rightDir, upDir));
+
+				//----------判断扰乱中心与自己的距离，符合半径内执行偏移
 				float4 stepon=UNITY_ACCESS_INSTANCED_PROP(Props,_Stepon);
 				float4 worldpos=mul(unity_ObjectToWorld,float4(center,1));
 				float3 dis = distance(stepon,worldpos);
@@ -87,19 +93,25 @@
 				sphereDisp*=circle;
 				v.vertex.xz+=sphereDisp.xz;
 				}
-				//-------------
+				//-----------重构新的坐标位置
 				float3 centerOffs = v.vertex.xyz - center;
-				float3 localPos = center + rightDir * centerOffs.x + upDir * centerOffs.y+ normalDir * centerOffs.z;//根据顶点相对锚点的偏移与正交基矢量相乘得到新定点位置
-				//---风
-				float windmutation =1-tex2Dlod(_Wind,float4(worldpos.x/_Mapwidth+_Time.x,worldpos.z/_Mapwidth,0,0)).b;
+				float3 localPos = center + rightDir * centerOffs.x + upDir * centerOffs.y+ normalDir * centerOffs.z;
+				//---根据贴图获取风力的系数，但是这样的话，一个植被的位置一旦确定，则基础风力就已经确定了
+				//float windmutation =1-tex2Dlod(_Wind,float4(worldpos.x/_Mapwidth+_Time.x,worldpos.z/_Mapwidth,0,0)).b;
+				float windmutation = 1 - tex2Dlod(_Wind, float4(worldpos.x / _Mapwidth, worldpos.z / _Mapwidth, 0, 0)).b;
+				//windmutation = _VerticalBillboarding;
 				float time=(_Time.y)*(_TimeScale);
+				//---获取风力的方向
+				//float4 localwindvector=normalize(mul(unity_WorldToObject,_Windvector));
+				float4 localwindvector = (mul(unity_WorldToObject, _Windvector));
+				//--计算偏移
+				//---因为草的根部是不摆动的，风吹草不会左右摆，而是向左/右摆动，然后回到中间所以用cos修正
 
-				float4 localwindvector=normalize(mul(unity_WorldToObject,_Windvector));
-
-				localPos+=sin(time+windmutation*10)*cos(time*2/3+1+windmutation*10)*localwindvector.xyz*clamp(v.texcoord.y-0.5,0,1);//---因为草的根部是不摆动的，风吹草不会左右摆，而是向左/右摆动，然后回到中间所以用cos修正
+				//localPos= localPos+ _VerticalBillboarding*sin(time+windmutation*10)*cos(time*2/3+1+windmutation*10)*localwindvector.xyz*clamp(v.texcoord.y-0.5,0,1);
+				localPos = localPos + normalize(localwindvector)*_VerticalBillboarding * sin(time + windmutation * 10)*cos(time * 2 / 3 + 1 + windmutation * 10)*clamp(v.texcoord.y-0.7 , 0, 1);
 				o.pos = UnityObjectToClipPos(float4(localPos, 1));
 
-				o.worldpos = mul(unity_ObjectToWorld,float4(localPos,1));
+				//o.worldpos = mul(unity_ObjectToWorld,float4(localPos,1));
 				//TRANSFER_SHADOW(o);
 				return o;
             }

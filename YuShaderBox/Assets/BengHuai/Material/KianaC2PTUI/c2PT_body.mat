@@ -111,7 +111,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LightArea: 0.495
+    - _LightArea: 0.478
     - _LookupColor: 0
     - _LookupColorBilinear: 0
     - _MaxOutlineZOffset: 1
@@ -138,7 +138,7 @@ Material:
     - _SPTransitionBloomFactor: 1
     - _SPTransitionEmissionScaler: 1
     - _Scale: -1.74
-    - _SecondShadow: 0.328
+    - _SecondShadow: 0.535
     - _Shininess: 12.4
     - _SmoothnessTextureChannel: 0
     - _SpecMulti: 0.362
@@ -155,8 +155,8 @@ Material:
     - _DTFresnel: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EnvColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FirstShadowMultColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
-    - _LightSpecColor: {r: 0.3568802, g: 0.4056604, b: 0.08610717, a: 1}
+    - _FirstShadowMultColor: {r: 1, g: 0.8787473, b: 0, a: 1}
+    - _LightSpecColor: {r: 0, g: 1, b: 0.013357401, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RGColor: {r: 0.8301887, g: 0.62996274, b: 0.58348167, a: 1}
     - _SPCubeMapColor: {r: 1, g: 1, b: 1, a: 0}
@@ -164,4 +164,4 @@ Material:
     - _SPOldColor: {r: 1, g: 1, b: 1, a: 0}
     - _SPOutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SPTransitionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SecondShadowMultColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+    - _SecondShadowMultColor: {r: 1, g: 0, b: 0.09724617, a: 1}

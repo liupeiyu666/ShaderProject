@@ -232,13 +232,14 @@
 				t1 = 1.0f - smoothstep(_SecondShadow-0.05,_SecondShadow, t1);
 				//计算颜色，这个不就都已经 包含了亮面和暗面的颜色
 				secondShadowColor = t1 * secondShadowColor + (1.0f - t1) * firstShadowColor;
+				//return float4(secondShadowColor, 1);
 				float4 outCo;				
 				//对应的做了映射x=1.2x-0.1  y=1.25y-0.125
 				fixed2 expandMask = realMask * fixed2(1.2f, 1.25f) + fixed2(-0.1f, -0.125f);
 				//对阴影进行一次拆分t1为1阴影，为0非阴影，单纯的美术制作的方向的
 				t1 = 1.0f - step(0.5f, realMask);
 				t1 = t1 * expandMask.x + (1.0f - t1) * expandMask.y;
-				//--上面是做了分段的解析t1=1.2x-0.1 {x=[0,0.5]}    t1=1.25x-0.125 {x=[0.5,1]}				
+				//--上面是做了分段的解析t1=1.2x-0.1 {x=[0,0.5]=>[-0.1,0.5]}    t1=1.25x-0.125 {x=[0.5,1]=>[0.5,1.125]}				
 				
 				//将设置的阴影和光照信息结合,本次进行的
 				t1 = (t1 + i.lambert * atten) * 0.5f;
@@ -247,6 +248,7 @@
 				t1 = 1.0f - smoothstep(_LightArea - 0.02,_LightArea, t1);
 				//这里是在阴影处添加了另一个阴影颜色
 				firstShadowColor = t1 * firstShadowColor + (1.0f - t1) *baseTexColor;
+				//return float4(firstShadowColor, 1);
 				//小于0.09的，t2为1，反之为0
 				fixed t2 = 1.0f - step(0.09f, realMask);				
 				//t2阴影部分为1，亮面为0，而这里亮面使用了

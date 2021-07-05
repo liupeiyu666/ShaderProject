@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 2d0256fa583daad439eb124cf5563556, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 3, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Wind:
-        m_Texture: {fileID: 2800000, guid: fd2a2495f230ce64ab300110991e3242, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43c788c5294d5f64f8be9b438f9a8a62, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 1, y: 0}
     m_Floats:
@@ -78,10 +78,10 @@ Material:
     - _SrcBlend: 1
     - _TimeScale: 2
     - _UVSec: 0
-    - _VerticalBillboarding: 1
+    - _VerticalBillboarding: 0.521
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Colorone: {r: 0.36433223, g: 0.7169812, b: 0.091313645, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Windvector: {r: 1000, g: 0, b: 1, a: 0}
+    - _Windvector: {r: 4, g: 0, b: 0, a: 0}

@@ -7,11 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: grass3
-  m_Shader: {fileID: 4800000, guid: dfbe37a40f6bad146858d5a886dd9a2b, type: 3}
+  m_Name: QF
+  m_Shader: {fileID: 4800000, guid: 45d757feab9ce3145abe39b4447d34c8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -40,10 +40,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8a6698cf52cf6144aad9046ccc81a60f, type: 3}
+        m_Texture: {fileID: 2800000, guid: ee996905804a44e4db5662f3168403ec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 364cd92caedb20247be1c645b964ce32, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -55,33 +63,50 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Wind:
-        m_Texture: {fileID: 2800000, guid: fd2a2495f230ce64ab300110991e3242, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _CharacterAlpha: 1
     - _Cutoff: 0.5
+    - _DarkSoft: 0
+    - _DarkSwitch: 0
     - _DetailNormalMapScale: 1
+    - _DiffuseIntensity: 1
+    - _Down: 1
     - _DstBlend: 0
+    - _EmissionIntensity: 0
+    - _FirstDarkWidth: 0.431
+    - _FourShadowThreshold: 0.355
+    - _Gloss: 3.7
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Mapwidth: 1110
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OutlineWidth: 0
     - _Parallax: 0.02
-    - _Radius: 1.5
+    - _RampSwitch: 0
+    - _RampThreshold: 0.5
+    - _RimAmount: 0.9
+    - _RimThreshold: 0.1
+    - _SecondDarkWidth: 0
+    - _Skinned: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TimeScale: 3.31
+    - _ThirdShadowThreshold: 0.326
     - _UVSec: 0
-    - _VerticalBillboarding: 0.661
+    - _Up: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Colorone: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.8867924, g: 0.8324136, b: 0.8324136, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Windvector: {r: 0, g: 0, b: 1, a: 0}
+    - _FirstDarkColor: {r: 0.4343675, g: 0.8980392, b: 0.3843137, a: 1}
+    - _FourDarkColor: {r: 0.7254902, g: 0.23137254, b: 0.23642008, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SecondDarkColor: {r: 1, g: 0.042452812, b: 0.042452812, a: 1}
+    - _ShadowOffset: {r: 0, g: 0.5, b: 0, a: 0.5}
+    - _Specular: {r: 0.49132252, g: 0.5281063, b: 0.5754717, a: 0}
+    - _ThirdDarkColor: {r: 0.43529415, g: 0.8980393, b: 0.38431376, a: 1}
+    - _ToonDrakColor: {r: 0.02180491, g: 0.9245283, b: 0.5202615, a: 1}

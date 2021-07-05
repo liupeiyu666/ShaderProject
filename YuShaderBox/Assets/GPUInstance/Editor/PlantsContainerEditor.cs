@@ -93,6 +93,22 @@ public class PlantsContainerEditor : Editor
     public override void OnInspectorGUI()
     {
         base.DrawDefaultInspector();
+        GUILayout.BeginVertical("box", GUILayout.Width(Screen.width));
+        GUILayout.BeginHorizontal();
+        plantsContainer.mSetting = (PlantsSetting)EditorGUILayout.ObjectField("选择植被设置", plantsContainer.mSetting, typeof(PlantsSetting), true);
+        if (GUILayout.Button(new GUIContent("创建", "创建一个新的植被设置,路径为对应的场景路径Asset/PlantSettings.asset")))
+        {
+            plantsContainer.mSetting = new PlantsSetting();
+            string path = string.Format("Assets/{0}.asset", (typeof(PlantsSetting).ToString()));
+            AssetDatabase.CreateAsset(plantsContainer.mSetting, path);
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.EndVertical();
+
+        if (plantsContainer.mSetting == null)
+        {
+            return;
+        }
 
         GUILayout.Space(20);
         GUILayout.BeginVertical("box", GUILayout.Width(Screen.width));
@@ -121,17 +137,7 @@ public class PlantsContainerEditor : Editor
 
 
         GUILayout.Space(20);
-        GUILayout.BeginVertical("box", GUILayout.Width(Screen.width));
-        GUILayout.BeginHorizontal();
-        plantsContainer.mSetting = (PlantsSetting)EditorGUILayout.ObjectField("选择植被设置", plantsContainer.mSetting, typeof(PlantsSetting), true);
-        if (GUILayout.Button(new GUIContent("创建","创建一个新的植被设置,路径为对应的场景路径Asset/PlantSettings.asset")))
-        {
-            plantsContainer.mSetting=new PlantsSetting();
-            string path = string.Format("Assets/{0}.asset", (typeof(PlantsSetting).ToString()));
-            AssetDatabase.CreateAsset(plantsContainer.mSetting, path);
-        }
-        GUILayout.EndHorizontal();
-        GUILayout.EndVertical();
+       
         if (plantsContainer.mSetting==null)
         {
            
@@ -260,7 +266,7 @@ public class PlantsContainerEditor : Editor
     //Scene面板回调函数
     public  void OnSceneGUI()
     {
-        if (!plantsContainer.mSetting.canEdit)
+        if (plantsContainer.mSetting == null || !plantsContainer.mSetting.canEdit)
         {
             return;
         }
